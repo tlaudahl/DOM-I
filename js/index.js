@@ -37,6 +37,53 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+$(document).ready(() => {
+  // <--------- Nav ----------->
+  $("a").eq(0).text(siteContent['nav']['nav-item-1']).css("color", "black")
+  $("a").eq(1).text(siteContent['nav']['nav-item-2']).css("color", "black")
+  $("a").eq(2).text(siteContent['nav']['nav-item-3']).css("color", "black")
+  $("a").eq(3).text(siteContent['nav']['nav-item-4']).css("color", "black")
+  $("a").eq(4).text(siteContent['nav']['nav-item-5']).css("color", "black")
+  $("a").eq(5).text(siteContent['nav']['nav-item-6']).css("color", "black")
+  $("#logo-img").attr("src", siteContent['nav']['img-src'])
+
+  // <--------- Nav (Step 3) ----------->
+  $("<a href='#'>Prepend</a>").insertBefore("nav a:first")
+  $("<a href='#'>Append</a>").insertAfter("nav a:last")
+
+  // <--------- CTA ----------->
+  $(".cta-text h1").text(siteContent['cta']['h1']).css({ color: "black", fontWeight: "bold", fontSize: '32' })
+  $("#cta-img").attr('src', siteContent['cta']['img-src'])
+  $("#getStarted").text(siteContent['cta']['button'])
+
+  // <--------- CTA (Stretch) ----------->
+  $("#cta-img").on("click", function(event) {
+    $(this).toggleClass("gray")
+  })
+
+  // <--------- Main Content Top ----------->
+  $(".top-content h4:first").text(siteContent['main-content']['features-h4'])
+  $(".top-content p:first").text(siteContent['main-content']['features-content'])
+  $(".top-content h4:last").text(siteContent['main-content']['about-h4'])
+  $(".top-content p:last").text(siteContent['main-content']['about-content'])
+
+  // <--------- Middle Image ----------->
+  $(".middle-img").attr("src", siteContent['main-content']['middle-img-src'])
+
+  // <--------- Main Content Bottom ----------->
+  $(".bottom-content h4").eq(0).text(siteContent['main-content']['services-h4'])
+  $(".bottom-content p").eq(0).text(siteContent['main-content']['services-content'])
+  $(".bottom-content h4").eq(1).text(siteContent['main-content']['product-h4'])
+  $(".bottom-content p").eq(1).text(siteContent['main-content']['product-content'])
+  $(".bottom-content h4").eq(2).text(siteContent['main-content']['vision-h4'])
+  $(".bottom-content p").eq(2).text(siteContent['main-content']['vision-content'])
+
+  // <--------- Contact ----------->
+  $(".contact h4").text(siteContent['contact']['contact-h4'])
+  $(".contact p").eq(0).text(siteContent['contact']['address'])
+  $(".contact p").eq(1).text(siteContent['contact']['phone'])
+  $(".contact p").eq(2).text(siteContent['contact']['email'])
+
+  // <--------- Footer ----------->
+  $("footer p").text(siteContent['footer']['copyright'])
+})
