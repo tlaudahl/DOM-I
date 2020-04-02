@@ -47,10 +47,19 @@ $(document).ready(() => {
   $("a").eq(5).text(siteContent['nav']['nav-item-6']).css("color", "black")
   $("#logo-img").attr("src", siteContent['nav']['img-src'])
 
+  // <--------- Nav (Step 3) ----------->
+  $("<a href='#'>Prepend</a>").insertBefore("nav a:first")
+  $("<a href='#'>Append</a>").insertAfter("nav a:last")
+
   // <--------- CTA ----------->
   $(".cta-text h1").text(siteContent['cta']['h1']).css({ color: "black", fontWeight: "bold", fontSize: '32' })
   $("#cta-img").attr('src', siteContent['cta']['img-src'])
   $("#getStarted").text(siteContent['cta']['button'])
+
+  // <--------- CTA (Stretch) ----------->
+  $("#cta-img").on("click", function(event) {
+    $(this).toggleClass("gray")
+  })
 
   // <--------- Main Content Top ----------->
   $(".top-content h4:first").text(siteContent['main-content']['features-h4'])
@@ -78,57 +87,3 @@ $(document).ready(() => {
   // <--------- Footer ----------->
   $("footer p").text(siteContent['footer']['copyright'])
 })
-
-// // Add new content to nav;
-
-// const nav = document.querySelector("nav");
-// nav.style.backgroundColor = "red";
-
-// let a = document.createElement("A");
-// a.setAttribute("href", "#")
-// // let t = document.createTextNode("Appended Child");
-// // a.appendChild(t);
-// a.textContent = "Appended Child"
-// nav.appendChild(a);
-
-
-// let a1 = document.createElement("A");
-// a.setAttribute("href", "#");
-// a1.textContent = "Prepended Child";
-// nav.prepend(a1);
-
-
-// // Stretch - Button to update styles
-
-// // get the button
-// const button = document.querySelector("#getStarted");
-
-// // top content div
-// const topDiv = document.querySelector(".top-content");
-
-// // bottom content div
-// const bottomDiv = document.querySelector(".bottom-content");
-
-
-// button.addEventListener("click", function() {
-//   let topDivStyle = window.getComputedStyle(topDiv).getPropertyValue("background-color");
-//   if (topDivStyle === "rgb(255, 0, 0)") {
-//     topDiv.style.backgroundColor = "white";
-//   } else {
-//     topDiv.style.backgroundColor = "red";
-//   }
-//   let bottomDivStyle = window.getComputedStyle(bottomDiv).getPropertyValue("background-color");
-//   if (bottomDivStyle === "rgb(0, 0, 255)") {
-//     bottomDiv.style.backgroundColor = "white";
-//   } else {
-//     bottomDiv.style.backgroundColor = "blue";
-//   }
-//   // ctaImage.style.display = "none";
-//   let ctaImageVisibility = window.getComputedStyle(ctaImage).getPropertyValue("visibility");
-//   console.log(ctaImageVisibility);
-//   if (ctaImageVisibility === "hidden") {
-//     ctaImage.style.visibility = "visible";
-//   } else {
-//     ctaImage.style.visibility = "hidden";
-//   }
-// })
